@@ -1,0 +1,24 @@
+{
+  "name": "dv-final-project",
+  "version": "1.0.0",
+  "description": "Data Visualization Final Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prabhudc/github.io.git"
+  },
+  "keywords": [
+    "dv",
+    "data-visualization",
+    "d3"
+  ],
+  "author": "Prabhu DC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prabhudc/github.io/issues"
+  },
+  "homepage": "https://github.com/prabhudc/github.io#readme"
+}
