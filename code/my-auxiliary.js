@@ -1,11 +1,18 @@
 
 function buildToolTop5Artist(d) {
-  if (d.depth !== 0) {
-    d3.selectAll("div.tooltip3").style("padding", 10);
+    console.log(d.depth);
+  if (d.depth != 0) {
+    d3.select("div.tooltipPackedCircles")
+    .style("padding", 10)
+    // .style("opacity", 1)
+    ;
     return toolTipText = '<h3>' + d.data.PERFORMER + '</h3><hr>';
 
   } else {
-    d3.selectAll("div.tooltip3").style("padding", 0);
+    d3.select("div.tooltipPackedCircles")
+    .style("padding", 0)
+    // .style("opacity", 0)
+    ;
   }
 }
 
@@ -30,9 +37,14 @@ function getYearFromDate(data) {
   return outYear;
 }
 
-function clearToolTips(){
-d3.select("div.tooltipScatterPlot").remove();
-d3.select("div.tooltipTreeMap").remove();
-d3.select("div.tooltipPackedCircles").remove();
+function clearAll(){
+    d3.select("svg.main-chart").remove();
+    d3.select("div.tooltipScatterPlot").remove();
+    d3.select("div.tooltipTreeMap").remove();
+    d3.select("div.tooltipPackedCircles").remove();
+    d3.select("html.main-text").remove();
+    d3.select("div.chart-text").remove();
+    d3.select("div.chart-group").remove();
+    d3.select("div.log-check").remove();
 }
 

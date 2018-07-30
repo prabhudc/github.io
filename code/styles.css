@@ -1,19 +1,24 @@
 
 div.pageLeftMenu{
-    width: 19%;
+    width: 13%;
     height: 85%;
     border: 1px solid black;
     float : left;
 }
 
 div.pageContent{
-    width: 80%;
+    width: 86%;
     height: 100%;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     float: right;
     align-content: center;
+    /*padding: 20px;*/
 }
 
+div.chart-text {
+    float: left;
+    width: 20%;
+}
 
 div.pageHeader{
     width: 100%;
@@ -26,9 +31,32 @@ div.pageHeader{
     text-align: center;
 }
 
-svg.main-chart {
-    align-content: center;
+svg.main-chart{
+    float: center;
+    width: 60%;
+    /*vertical-align: top;*/
 }
+div.chart-group{
+    /*float: center;*/
+    width: 70%;
+    float: left;
+    align-content: left;
+}
+
+
+label.log-check{
+    font-size: 20px;
+    text-align:center;
+    padding-right: 5px;
+    color: maroon;
+}
+
+div.log-check{
+    float: left;
+    align-content: left;
+    width: 15%;
+    padding-top: 10px;
+ }
 
 .tooltipPackedCircles {
   background: white;
@@ -93,4 +121,21 @@ a.navButton:hover{
     display:block;
     margin:0.2em auto;
  }
+}
+
+a.button5{
+ display:inline-block;
+ padding:0.46em 1.6em;
+ border:0.1em solid #000000;
+ margin:0 0.2em 0.2em 0;
+ border-radius:0.12em;
+ box-sizing: border-box;
+ text-decoration:none;
+ font-family:'Roboto',sans-serif;
+ font-weight:300;
+ color:#000000;
+ text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+ background-color:#FFFFFF;
+ text-align:center;
+ transition: all 0.15s;
 }

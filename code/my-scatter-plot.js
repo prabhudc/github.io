@@ -1,4 +1,7 @@
-function renderScatterPlot(data){
+var xScale = d3.scaleLinear().domain([1960, 2017]).range([10, 510]);
+var fillScale = d3.scaleLinear().domain([6, 30]).range(["#2196f3", "#f44336"]);
+
+function renderScatterPlot(data,flag){
 
   data.forEach(function(d) {
     d.YEAR = getYearFromDate(d.WEEKID)
@@ -8,11 +11,17 @@ function renderScatterPlot(data){
   // Code for scatterplot begins here
   ////////////////////////////////////////////////////////////////
   var xScale = d3.scaleLinear().domain([1960, 2017]).range([10, 510]);
-  var yScale = d3.scaleLinear().domain([6, 30]).range([510, 10]);
+  var yLogScale = d3.scaleLog().domain([6, 30]).range([510, 10]);
+  var yTrueScale = d3.scaleLinear().domain([6, 30]).range([510, 10]);
+  if(flag == null){
+    yScale = yTrueScale;
+  }else{
+    yScale = yLogScale;
+  }
   var fillScale = d3.scaleLinear().domain([6, 30]).range(["#2196f3", "#f44336"])
 
   xAxis = d3.axisBottom().scale(xScale);
-  yAxis = d3.axisRight().scale(yScale).tickSize(520);
+  yAxis = d3.axisRight().scale(yTrueScale).tickSize(520);
 
   d3.select("svg.main-chart").append("g").attr("id", "xAxisG").call(xAxis);
   d3.select("svg.main-chart").append("g").attr("id", "yAxisG").call(yAxis);
@@ -26,7 +35,8 @@ function renderScatterPlot(data){
     .attr("r", 8)
     .attr("cx", (d, i) => xScale(d.YEAR))
     .attr("cy", (d) => yScale(d.GAP))
-    .style("fill", (d) => fillScale(d.GAP));
+    .style("fill", (d) => fillScale(d.GAP))
+    ;
 
   d3.select("#xAxisG")
     .attr("transform", "translate(0,520)");
@@ -88,7 +98,7 @@ function renderScatterPlot(data){
     .append("text")
     .attr("class", "max")
     .attr("x", (d) => xScale(d.YEAR) - 200)
-    .attr("y", (d) => yScale(d.GAP) + 5)
+    .attr("y", (d) => yTrueScale(d.GAP) + 5)
     .text(function(d) {
       return "Record Breaker ==>";
     })
@@ -98,4 +108,29 @@ function renderScatterPlot(data){
   // .style("font-size","2em")
   ;
 
+
+ d3.select("div.chart-group")
+    .append("div")
+    .attr("class","log-check")
+    .append("label")
+    .attr("class","log-check")
+    .text("Enable Log-Scale")
+    // .style("font-size","1.2em")
+    .append("input")
+    .attr("type","checkbox")
+    .attr("name","Log-Scale")
+    .attr("value","log")
+    .attr("checked",flag)
+    .on('change', function() {
+          console.log(this.checked);
+          if(this.checked == true){
+            dieHards(this.checked);
+          }else{
+            dieHards(null);
+          }
+
+     });
+    ;
+
 }
+
