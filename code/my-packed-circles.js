@@ -13,7 +13,7 @@ function renderPackedCircles(data) {
   };
 
   var packChart = d3.pack();
-  packChart.size([700, 700]);
+  packChart.size([600, 600]);
   var root = d3.hierarchy(packableSet, (d, i) => d.values)
     .sum(d => {
       return d.RUN_COUNT;
