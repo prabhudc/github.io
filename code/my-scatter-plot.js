@@ -114,7 +114,7 @@ function renderScatterPlot(data,flag){
     .attr("class","log-check")
     .append("label")
     .attr("class","log-check")
-    .text("Enable Log-Scale")
+    .text("Toggle Log-Scale : ")
     // .style("font-size","1.2em")
     .append("input")
     .attr("type","checkbox")

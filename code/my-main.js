@@ -45,7 +45,7 @@ function legends(){
     .attr("class","chart-text")
     .append("html")
     .attr("class","chart-text")
-    .html(hitSongsHTML)
+    .html(lengendsHTML)
     ;
   d3.select("div.pageContent")
     .append("svg")
@@ -71,7 +71,7 @@ function dieHards(flag){
     .attr("class","chart-text")
     .append("html")
     .attr("class","chart-text")
-    .html(hitSongsHTML)
+    .html(longestGAP)
     ;
   // d3.select("svg.main-chart").remove();
   d3.select("div.pageContent")
